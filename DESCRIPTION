@@ -1,0 +1,15 @@
+Package: Rchoice
+Title: Discrete Choice (Binary, Poisson and Ordered) Models with Random
+        Parameters
+Version: 0.1
+Author: Mauricio Sarrias <msarrias86@gmail.com>
+Maintainer: Mauricio Sarrias <msarrias86@gmail.com>
+Description: Estimate binary, ordered and count models with random parameters.
+Depends: R (>= 2.10), maxLik, Formula
+Imports: sandwich, ggplot2, plotrix, car, lmtest
+License: GPL (>= 2)
+LazyData: no
+Packaged: 2014-04-01 17:15:50 UTC; mauriciosarrias
+NeedsCompilation: no
+Repository: CRAN
+Date/Publication: 2014-04-02 09:08:22
