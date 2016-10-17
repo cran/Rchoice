@@ -1,17 +1,21 @@
 Package: Rchoice
 Title: Discrete Choice (Binary, Poisson and Ordered) Models with Random
         Parameters
-Version: 0.3
+Version: 0.3-1
 Author: Mauricio Sarrias <msarrias86@gmail.com>
 Maintainer: Mauricio Sarrias <msarrias86@gmail.com>
-Description: An implementation of simulated maximum likelihood method for the estimation of Binary (Probit and Logit), Ordered (Probit and Logit) and Poisson models with random parameters for cross-sectional and longitudinal data.
-Depends: R (>= 3.1.2), Formula, maxLik
-Imports: msm, plm, plotrix, stats
+Description: An implementation of simulated maximum likelihood method for the
+    estimation of Binary (Probit and Logit), Ordered (Probit and Logit) and
+    Poisson models with random parameters for cross-sectional and longitudinal
+    data.
+Depends: R (>= 3.3.1), Formula, maxLik
+Imports: msm, plm, plotrix, stats, graphics
 Suggests: car, lmtest, memisc, pglm, sandwich
 License: GPL (>= 2)
 URL: http://msarrias.weebly.com/rchoice-package-in-r.html
 LazyData: no
+RoxygenNote: 5.0.1
 NeedsCompilation: no
-Packaged: 2015-04-29 18:55:18 UTC; mauriciosarrias
+Packaged: 2016-10-17 12:33:16 UTC; mauriciosarrias
 Repository: CRAN
-Date/Publication: 2015-04-30 02:34:40
+Date/Publication: 2016-10-17 18:59:55

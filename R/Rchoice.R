@@ -146,7 +146,7 @@
 #' Greene, W. H. (2012). Econometric Analysis. 7 edition. Prentice Hall.
 #' 
 #' Train, K. (2009). Discrete Choice Methods with Simulation. Cambridge university press.
-#' @import maxLik Formula
+#' @import maxLik Formula stats
 #' @importFrom plm pdata.frame
 Rchoice <- function(formula, data, subset, weights, na.action, family,
                     start = NULL, ranp = NULL, R = 40, haltons = NA, 
@@ -376,7 +376,7 @@ Rchoice <- function(formula, data, subset, weights, na.action, family,
   }
   
   ## Check if some variable is log-normal or Johnson Sb
-  if(R.model){
+  if(R.model && is.null(start)){
     if (any(ranp == "ln")){
       ln <- paste('mean', names(ranp[ranp == "ln"]), sep = '.')
       if (sum(theta[ln] < 0) >= 1)  stop("Some variables specified as ln have negative values in the non-random parameter model. Try using the negative of the variable.")
