@@ -1,7 +1,7 @@
 Package: Rchoice
 Title: Discrete Choice (Binary, Poisson and Ordered) Models with Random
         Parameters
-Version: 0.3-1
+Version: 0.3-1.1
 Author: Mauricio Sarrias <msarrias86@gmail.com>
 Maintainer: Mauricio Sarrias <msarrias86@gmail.com>
 Description: An implementation of simulated maximum likelihood method for the
@@ -16,6 +16,6 @@ URL: http://msarrias.weebly.com/rchoice-package-in-r.html
 LazyData: no
 RoxygenNote: 5.0.1
 NeedsCompilation: no
-Packaged: 2016-10-17 12:33:16 UTC; mauriciosarrias
+Packaged: 2018-11-06 09:51:44 UTC; hornik
 Repository: CRAN
-Date/Publication: 2016-10-17 18:59:55
+Date/Publication: 2018-11-06 10:58:06 UTC

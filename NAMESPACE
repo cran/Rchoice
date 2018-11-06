@@ -35,3 +35,9 @@ import(stats)
 importFrom(msm,deltamethod)
 importFrom(plm,pdata.frame)
 importFrom(plotrix,plotCI)
+
+if(getRversion() >= "3.6.0") {
+    S3method(sandwich::bread, "Rchoice")
+    S3method(sandwich::estfun, "Rchoice")
+    S3method(memisc::getSummary, "Rchoice")
+}    
