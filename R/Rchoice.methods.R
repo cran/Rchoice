@@ -31,6 +31,8 @@ model.matrix.Rchoice <- function(object, ...){
 #' @param type if the model is estimated with random parameters, then this argument indicates what matrix should be returned. If \code{type = "cov"}, then the covariance matrix of the random parameters is returned; if \code{type = "cor"} then the correlation matrix of the random parameters is returned; if \code{type = "sd"} then the standard deviation of the random parameters is returned,
 #' @param se if \code{TRUE} \code{type = "cov"} then the standard error of the covariance matrix of the random parameters is returned; if \code{TRUE} \code{type = "sd"} the standard error of the standard deviation of the random parameter is returned. This argument if valid only if the model is estimated using correlated random parameters,
 #' @param digits number of digits,
+#' @param x a fitted model of class \code{Rchoice},
+#' @param sd if \code{TRUE}, then the standard deviation of the random parameters are returned,
 #' @param ... further arguments
 #' @details This new interface replaces the \code{cor.Rchoice}, \code{cov.Rchoice} and \code{se.cov.Rchoice} functions which are deprecated.
 #' @seealso \code{\link[Rchoice]{Rchoice}} for the estimation of discrete choice models with random parameters.
@@ -219,15 +221,6 @@ bread.Rchoice <- function(x, ... ) {
 #' @details For more information see \code{\link[sandwich]{estfun}} from package \pkg{sandwich}.
 #' @method estfun Rchoice
 #' @export estfun.Rchoice
-#' @examples
-#' ## Probit model
-#' data("Workmroz")
-#' probit <- Rchoice(lfp ~ k5 + k618 + age + wc + hc + lwg + inc,  
-#'                   data = Workmroz , family = binomial('probit'))
-#' summary(probit)
-#' 
-#' library(sandwich)
-#' estfun(probit) 
 estfun.Rchoice <- function(x, ... ) {
   return(x$logLik$gradientObs )
 }
@@ -313,20 +306,6 @@ print.summary.Rchoice <- function(x, digits = max(3, getOption("digits") - 3),
 #' @param ... further arguments,
 #' 
 #' @details For more details see package \pkg{memisc}.
-#' @examples
-#' 
-#' ## Probit Model
-#' data("Workmroz")
-#' probit <- Rchoice(lfp ~ k5 + k618 + age + wc + hc + lwg + inc,  
-#'                  data = Workmroz, family = binomial('probit'))
-#' ## Logit Model
-#' logit <- Rchoice(lfp ~ k5 + k618 + age + wc + hc + lwg + inc,  
-#'                  data = Workmroz, family = binomial('logit'))
-#'                  
-#' ## Table with Models
-#' library(memisc)
-#' mtable("Probit Model"= probit, "Logit Model" = logit, 
-#'        summary.stats = c("N", "Log-likelihood", "BIC", "AIC"))                 
 #' @import stats
 #' @export 
 getSummary.Rchoice <- function(obj, alpha = 0.05, ...){
@@ -459,46 +438,7 @@ plot.Rchoice <- function(x, par = NULL, effect = c("ce", "cv"), wrt = NULL,
 }
 
 
-#' Functions for correlated random parameters
-#' 
-#' These are a set of functions that help to extract the variance-covariance matrix, the correlation matrix, and the standard error of the random parameters for models of class \code{Rchoice}.
-#' 
-#' @param x a object of class \code{Rchoice} where \code{ranp} is not \code{NULL}, 
-#' @param sd if \code{TRUE}, then the standard deviations of the random parameters along with their standard errors are computed,
-#' @param digits the number of digits,
-#' @param ... further arguments
-#' @return \code{cov.Rchoice} returns a matrix with the variance of the random parameters if model is fitted with random coefficients. If the model is fitted with \code{correlation = TRUE}, then the variance-covariance matrix is returned. 
-#' 
-#'   
-#' If \code{correlation = TRUE} in the fitted model, then  \code{se.cov.Rchoice} returns a coefficient matrix for the elements of the variance-covariance matrix or the standard deviations if \code{sd = TRUE}.
-#' 
-#' 
-#' @details The variance-covariance matrix is computed using \eqn{LL'=\Sigma}, where \eqn{L} is the Cholesky matrix.
-#' 
-#' 
-#' \code{se.cov.Rchoice} function is a wrapper for \code{\link[msm]{deltamethod}} function of \pkg{msm} package.
-#' @references
-#' \itemize{
-#' \item Greene, W. H. (2012). Econometric Analysis, Seventh Edition. Pearson Hall.
-#' \item Train, K. (2009). Discrete Choice Methods with Simulation. Cambridge university press.
-#' }
-#' @seealso \code{\link[Rchoice]{Rchoice}} for the estimation of discrete choice models with individual heterogeneity.
-#' @examples
-#' \dontrun{
-#' ## Estimate a poisson model with correlated random parameters
-#' data("Articles")
-#' poissonc.ran <- Rchoice(art ~ fem + mar + kid5 + phd + ment, 
-#'                        data = Articles, 
-#'                        ranp = c(kid5 = "n", phd = "n", ment = "n"), 
-#'                        family = poisson, 
-#'                        correlation =  TRUE)
-#'                        
-#' ## Functions for models with correlated random parameters 
-#' cov.Rchoice(poissonc.ran)
-#' cor.Rchoice(poissonc.ran)
-#' se.cov.Rchoice(poissonc.ran)
-#' se.cov.Rchoice(poissonc.ran, sd = TRUE)                     
-#' }
+#' @rdname vcov.Rchoice
 #' @export
 cov.Rchoice <- function(x){
   if (!inherits(x, "Rchoice")) stop("not a \"Rchoice\" object")
@@ -522,7 +462,7 @@ cov.Rchoice <- function(x){
   V
 }
 
-#' @rdname cov.Rchoice
+#' @rdname vcov.Rchoice
 #' @export
 cor.Rchoice <- function(x){
   if (!x$correlation) stop('\"cor.Rchoice\"  only relevant for correlated random coefficient model')
@@ -611,7 +551,7 @@ effect.Rchoice <- function(x, par = NULL, effect = c("cv", "ce"), wrt = NULL, ..
   return(effe)
 }
 
-#' @rdname cov.Rchoice
+#' @rdname vcov.Rchoice
 #' @importFrom msm deltamethod
 #' @import stats
 #' @export

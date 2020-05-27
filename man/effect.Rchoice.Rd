@@ -52,4 +52,3 @@ summary(bi.wage$sd.est)
 \seealso{
 \code{\link[Rchoice]{Rchoice}} for the estimation of different discrete choice models with individual parameters.
 }
-

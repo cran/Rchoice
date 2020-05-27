@@ -34,4 +34,3 @@ bread(probit)
 Zeileis A (2006), Object-oriented Computation of Sandwich 
 Estimators. Journal of Statistical Software, 16(9), 1--16.
 }
-

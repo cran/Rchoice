@@ -37,4 +37,3 @@ BIC(probit)
 \seealso{
 \code{\link[Rchoice]{Rchoice}}
 }
-

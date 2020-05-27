@@ -2,25 +2,42 @@
 % Please edit documentation in R/Rchoice.R, R/Rchoice.methods.R
 \name{Rchoice}
 \alias{Rchoice}
-\alias{coef.Rchoice}
-\alias{df.residual.Rchoice}
-\alias{fitted.Rchoice}
-\alias{logLik.Rchoice}
-\alias{model.matrix.Rchoice}
-\alias{nObs.Rchoice}
 \alias{ordinal}
-\alias{print.Rchoice}
-\alias{print.summary.Rchoice}
-\alias{residuals.Rchoice}
-\alias{summary.Rchoice}
 \alias{terms.Rchoice}
+\alias{model.matrix.Rchoice}
+\alias{coef.Rchoice}
+\alias{nObs.Rchoice}
+\alias{fitted.Rchoice}
+\alias{residuals.Rchoice}
+\alias{df.residual.Rchoice}
 \alias{update.Rchoice}
+\alias{logLik.Rchoice}
+\alias{print.Rchoice}
+\alias{summary.Rchoice}
+\alias{print.summary.Rchoice}
 \title{Estimate discrete choice model with random parameters}
 \usage{
-Rchoice(formula, data, subset, weights, na.action, family, start = NULL,
-  ranp = NULL, R = 40, haltons = NA, seed = 10, correlation = FALSE,
-  panel = FALSE, index = NULL, mvar = NULL, print.init = FALSE,
-  init.ran = 0.1, gradient = TRUE, ...)
+Rchoice(
+  formula,
+  data,
+  subset,
+  weights,
+  na.action,
+  family,
+  start = NULL,
+  ranp = NULL,
+  R = 40,
+  haltons = NA,
+  seed = 10,
+  correlation = FALSE,
+  panel = FALSE,
+  index = NULL,
+  mvar = NULL,
+  print.init = FALSE,
+  init.ran = 0.1,
+  gradient = TRUE,
+  ...
+)
 
 \method{terms}{Rchoice}(x, ...)
 
@@ -40,13 +57,21 @@ Rchoice(formula, data, subset, weights, na.action, family, start = NULL,
 
 \method{logLik}{Rchoice}(object, ...)
 
-\method{print}{Rchoice}(x, digits = max(3, getOption("digits") - 3),
-  width = getOption("width"), ...)
+\method{print}{Rchoice}(
+  x,
+  digits = max(3, getOption("digits") - 3),
+  width = getOption("width"),
+  ...
+)
 
 \method{summary}{Rchoice}(object, ...)
 
-\method{print}{summary.Rchoice}(x, digits = max(3, getOption("digits") - 3),
-  width = getOption("width"), ...)
+\method{print}{summary.Rchoice}(
+  x,
+  digits = max(3, getOption("digits") - 3),
+  width = getOption("width"),
+  ...
+)
 }
 \arguments{
 \item{formula}{a symbolic description of the model to be estimated. The \code{formula} consists in two parts. The first one is reserved for standard variables with fixed and random parameters. The second one is reserved for variables that enter in the mean of the random parameters. See for example \code{\link{rFormula}},}
@@ -213,9 +238,6 @@ summary(oprobit.ran)
 
 
 }
-\author{
-Mauricio Sarrias \email{msarrias86@gmail.com}
-}
 \references{
 Greene, W. H. (2012). Econometric Analysis. 7 edition. Prentice Hall.
 
@@ -224,4 +246,6 @@ Train, K. (2009). Discrete Choice Methods with Simulation. Cambridge university 
 \seealso{
 \code{\link[Rchoice]{plot.Rchoice}}, \code{\link[Rchoice]{effect.Rchoice}}
 }
-
+\author{
+Mauricio Sarrias \email{msarrias86@gmail.com}
+}

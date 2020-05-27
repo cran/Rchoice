@@ -4,10 +4,22 @@
 \alias{plot.Rchoice}
 \title{Plot of the distribution of conditional expectation of random parameters.}
 \usage{
-\method{plot}{Rchoice}(x, par = NULL, effect = c("ce", "cv"), wrt = NULL,
-  type = c("density", "histogram"), adjust = 1, main = NULL,
-  col = "indianred1", breaks = 10, ylab = NULL, xlab = NULL,
-  ind = FALSE, id = NULL, ...)
+\method{plot}{Rchoice}(
+  x,
+  par = NULL,
+  effect = c("ce", "cv"),
+  wrt = NULL,
+  type = c("density", "histogram"),
+  adjust = 1,
+  main = NULL,
+  col = "indianred1",
+  breaks = 10,
+  ylab = NULL,
+  xlab = NULL,
+  ind = FALSE,
+  id = NULL,
+  ...
+)
 }
 \arguments{
 \item{x}{a object of class \code{Rchoice},}
@@ -67,9 +79,6 @@ plot(union.ran, par = "lwage", ind =  TRUE, id = 1:20, col = "blue")
 plot(union.ran, par = "lwage", effect = "cv", wrt = "rural", type = "histogram")
 }
 }
-\author{
-Mauricio Sarrias
-}
 \references{
 \itemize{
 \item Greene, W. H. (2012). Econometric analysis, Seventh Edition. Pearson Hall.
@@ -79,4 +88,6 @@ Mauricio Sarrias
 \seealso{
 \code{\link[Rchoice]{Rchoice}} for the estimation of different discrete choice models with individual parameters.
 }
-
+\author{
+Mauricio Sarrias
+}

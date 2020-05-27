@@ -2,11 +2,25 @@
 % Please edit documentation in R/Rchoice.methods.R
 \name{vcov.Rchoice}
 \alias{vcov.Rchoice}
+\alias{cov.Rchoice}
+\alias{cor.Rchoice}
+\alias{se.cov.Rchoice}
 \title{vcov method for Rchoice objects}
 \usage{
-\method{vcov}{Rchoice}(object, what = c("coefficient", "ranp"),
-  type = c("cov", "cor", "sd"), se = FALSE, digits = max(3,
-  getOption("digits") - 2), ...)
+\method{vcov}{Rchoice}(
+  object,
+  what = c("coefficient", "ranp"),
+  type = c("cov", "cor", "sd"),
+  se = FALSE,
+  digits = max(3, getOption("digits") - 2),
+  ...
+)
+
+cov.Rchoice(x)
+
+cor.Rchoice(x)
+
+se.cov.Rchoice(x, sd = FALSE, digits = max(3, getOption("digits") - 2))
 }
 \arguments{
 \item{object}{a fitted model of class \code{Rchoice},}
@@ -20,6 +34,10 @@
 \item{digits}{number of digits,}
 
 \item{...}{further arguments}
+
+\item{x}{a fitted model of class \code{Rchoice},}
+
+\item{sd}{if \code{TRUE}, then the standard deviation of the random parameters are returned,}
 }
 \description{
 The \code{vcov} method for \code{Rchoice} objects extracts the covariance matrix of the coefficients or the random parameters. It also allows to get the standard errors for the variance-covariance matrix of the random parameters
@@ -30,4 +48,3 @@ This new interface replaces the \code{cor.Rchoice}, \code{cov.Rchoice} and \code
 \seealso{
 \code{\link[Rchoice]{Rchoice}} for the estimation of discrete choice models with random parameters.
 }
-

@@ -19,19 +19,3 @@ A generic function to collect coefficients and summary statistics from a \code{R
 \details{
 For more details see package \pkg{memisc}.
 }
-\examples{
-
-## Probit Model
-data("Workmroz")
-probit <- Rchoice(lfp ~ k5 + k618 + age + wc + hc + lwg + inc,  
-                 data = Workmroz, family = binomial('probit'))
-## Logit Model
-logit <- Rchoice(lfp ~ k5 + k618 + age + wc + hc + lwg + inc,  
-                 data = Workmroz, family = binomial('logit'))
-                 
-## Table with Models
-library(memisc)
-mtable("Probit Model"= probit, "Logit Model" = logit, 
-       summary.stats = c("N", "Log-likelihood", "BIC", "AIC"))                 
-}
-

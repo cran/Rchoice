@@ -21,18 +21,7 @@ It extracts the gradient for each observations evaluated at the estimated parame
 \details{
 For more information see \code{\link[sandwich]{estfun}} from package \pkg{sandwich}.
 }
-\examples{
-## Probit model
-data("Workmroz")
-probit <- Rchoice(lfp ~ k5 + k618 + age + wc + hc + lwg + inc,  
-                  data = Workmroz , family = binomial('probit'))
-summary(probit)
-
-library(sandwich)
-estfun(probit) 
-}
 \references{
 Zeileis A (2006), Object-oriented Computation of Sandwich 
 Estimators. Journal of Statistical Software, 16(9), 1--16.
 }
-
