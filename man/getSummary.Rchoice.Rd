@@ -2,9 +2,9 @@
 % Please edit documentation in R/Rchoice.methods.R
 \name{getSummary.Rchoice}
 \alias{getSummary.Rchoice}
-\title{Get Model Summaries for Use with "mtable"}
+\title{Get Model Summaries for use with "mtable" for object of class Rchoice}
 \usage{
-getSummary.Rchoice(obj, alpha = 0.05, ...)
+\method{getSummary}{Rchoice}(obj, alpha = 0.05, ...)
 }
 \arguments{
 \item{obj}{a \code{Rchoice} object,}

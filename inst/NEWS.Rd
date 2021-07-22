@@ -2,6 +2,16 @@
 \title{Rchoice News}
 \encoding{UTF-8}
 
+\section{CHANGES IN VERSION 0.3-3}{
+\subsection{NEW FEATURES}{
+    \itemize{
+      \item Add hetprob function to estimate heterokedastic binary models.
+      \item Add ivplm function to estimatate instrumental variables probit model by Maximum Likelihood.
+      \item Fix minor bug in the \code{model.frame.rFormula} function with new update of \pkg{plm}. 
+      \item Slightly improved documentation. 
+    }
+  }  
+}
 
 \section{CHANGES IN VERSION 0.3-2}{
 \subsection{NEW FEATURES}{

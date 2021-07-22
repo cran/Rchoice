@@ -6,7 +6,6 @@
 \alias{terms.Rchoice}
 \alias{model.matrix.Rchoice}
 \alias{coef.Rchoice}
-\alias{nObs.Rchoice}
 \alias{fitted.Rchoice}
 \alias{residuals.Rchoice}
 \alias{df.residual.Rchoice}
@@ -44,8 +43,6 @@ Rchoice(
 \method{model.matrix}{Rchoice}(object, ...)
 
 \method{coef}{Rchoice}(object, ...)
-
-\method{nObs}{Rchoice}(x, ...)
 
 \method{fitted}{Rchoice}(object, ...)
 
@@ -210,19 +207,6 @@ poissonH.ran <- Rchoice(art ~ fem + mar + kid5 + phd + ment | fem + phd,
                        family = poisson,
                        R = 10)
 summary(poissonH.ran)
-
-## Probit Model with Random Effects and Random Parameters
-data('Unions', package = 'pglm')
-Unions$lwage <- log(Unions$wage)
-union.ran <- Rchoice(union ~ age + exper + rural + lwage,
-                     data = Unions[1:2000, ],
-                     family = binomial('probit'),
-                     ranp = c(constant = "n", lwage = "t"),
-                     R = 10,
-                     panel = TRUE,
-                     index = "id",
-                     print.init = TRUE)
-summary(union.ran)
 
 ## Ordered Probit Model with Random Effects and Random Parameters
 oprobit.ran <- Rchoice(newhsat ~ age + educ + married + hhkids + linc,

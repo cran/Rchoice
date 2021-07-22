@@ -27,9 +27,9 @@ model.matrix.Rchoice <- function(object, ...){
 #' The \code{vcov} method for \code{Rchoice} objects extracts the covariance matrix of the coefficients or the random parameters. It also allows to get the standard errors for the variance-covariance matrix of the random parameters
 #' 
 #' @param object a fitted model of class \code{Rchoice},
-#' @param what indicates which covariance matrix has to be extracted. The default is \code{coefficient}, in this case the \code{vcov} behaves as usual. If \code{what = "ranp"} the covariance matrix of the random parameters is returned as default, 
+#' @param what indicates which covariance matrix has to be extracted. The default is \code{coefficient}. In this case the \code{vcov} behaves as usual. If \code{what = "ranp"} the covariance matrix of the random parameters is returned as default, 
 #' @param type if the model is estimated with random parameters, then this argument indicates what matrix should be returned. If \code{type = "cov"}, then the covariance matrix of the random parameters is returned; if \code{type = "cor"} then the correlation matrix of the random parameters is returned; if \code{type = "sd"} then the standard deviation of the random parameters is returned,
-#' @param se if \code{TRUE} \code{type = "cov"} then the standard error of the covariance matrix of the random parameters is returned; if \code{TRUE} \code{type = "sd"} the standard error of the standard deviation of the random parameter is returned. This argument if valid only if the model is estimated using correlated random parameters,
+#' @param se if \code{TRUE} and \code{type = "cov"} then the standard error of the covariance matrix of the random parameters is returned; if \code{TRUE} and \code{type = "sd"} the standard error of the standard deviation of the random parameter is returned. This argument if valid only if the model is estimated using correlated random parameters,
 #' @param digits number of digits,
 #' @param x a fitted model of class \code{Rchoice},
 #' @param sd if \code{TRUE}, then the standard deviation of the random parameters are returned,
@@ -83,12 +83,10 @@ coef.Rchoice <- function(object, ...){
   return(result)
 }
 
-#' @rdname Rchoice
-#' @method nObs Rchoice
-#' @export nObs.Rchoice
-nObs.Rchoice <- function(x, ... ) {
-  return(x$logLik$nobs)
-}
+
+#nObs.Rchoice <- function(x, ... ) {
+#  return(x$logLik$nobs)
+#}
 
 #' @rdname Rchoice
 #' @method fitted Rchoice
@@ -297,7 +295,7 @@ print.summary.Rchoice <- function(x, digits = max(3, getOption("digits") - 3),
   invisible(x)
 }
 
-#' Get Model Summaries for Use with "mtable"
+#' Get Model Summaries for use with "mtable" for object of class Rchoice
 #' 
 #' A generic function to collect coefficients and summary statistics from a \code{Rchoice} object. It is used in \code{mtable}
 #' 
@@ -307,6 +305,7 @@ print.summary.Rchoice <- function(x, digits = max(3, getOption("digits") - 3),
 #' 
 #' @details For more details see package \pkg{memisc}.
 #' @import stats
+#' @importFrom memisc getSummary
 #' @export 
 getSummary.Rchoice <- function(obj, alpha = 0.05, ...){
   smry <- summary(obj)
@@ -328,7 +327,7 @@ getSummary.Rchoice <- function(obj, alpha = 0.05, ...){
 ## Method for Random Parameters
 ##=================================
 
-#' Plot of the distribution of conditional expectation of random parameters.
+#' Plot the distribution of conditional expectation for random parameters.
 #' 
 #' Plot the distribution of the conditional expectation of the random parameters or compensating variations for objects of class \code{Rchoice}. 
 #' 

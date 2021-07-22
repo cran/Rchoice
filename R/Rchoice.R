@@ -116,19 +116,6 @@
 #'                        R = 10)
 #' summary(poissonH.ran)
 #' 
-#' ## Probit Model with Random Effects and Random Parameters
-#' data('Unions', package = 'pglm')
-#' Unions$lwage <- log(Unions$wage)
-#' union.ran <- Rchoice(union ~ age + exper + rural + lwage,
-#'                      data = Unions[1:2000, ],
-#'                      family = binomial('probit'),
-#'                      ranp = c(constant = "n", lwage = "t"),
-#'                      R = 10,
-#'                      panel = TRUE,
-#'                      index = "id",
-#'                      print.init = TRUE)
-#' summary(union.ran)
-#' 
 #' ## Ordered Probit Model with Random Effects and Random Parameters
 #'oprobit.ran <- Rchoice(newhsat ~ age + educ + married + hhkids + linc,
 #'                      data = Health[1:2000, ],
@@ -178,7 +165,7 @@ Rchoice <- function(formula, data, subset, weights, na.action, family,
   
   ## check whether the model has random parameters and is hierarchical
   R.model <- !is.null(ranp)
-  Hier <- is.hierarchical(formula)
+  Hier    <- is.hierarchical(formula)
   if (Hier){
     if (!R.model) stop('Hierarchical model needs ranp to be specified')
     if (is.null(mvar)) stop("mvar argument is NULL")

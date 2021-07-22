@@ -25,11 +25,11 @@ se.cov.Rchoice(x, sd = FALSE, digits = max(3, getOption("digits") - 2))
 \arguments{
 \item{object}{a fitted model of class \code{Rchoice},}
 
-\item{what}{indicates which covariance matrix has to be extracted. The default is \code{coefficient}, in this case the \code{vcov} behaves as usual. If \code{what = "ranp"} the covariance matrix of the random parameters is returned as default,}
+\item{what}{indicates which covariance matrix has to be extracted. The default is \code{coefficient}. In this case the \code{vcov} behaves as usual. If \code{what = "ranp"} the covariance matrix of the random parameters is returned as default,}
 
 \item{type}{if the model is estimated with random parameters, then this argument indicates what matrix should be returned. If \code{type = "cov"}, then the covariance matrix of the random parameters is returned; if \code{type = "cor"} then the correlation matrix of the random parameters is returned; if \code{type = "sd"} then the standard deviation of the random parameters is returned,}
 
-\item{se}{if \code{TRUE} \code{type = "cov"} then the standard error of the covariance matrix of the random parameters is returned; if \code{TRUE} \code{type = "sd"} the standard error of the standard deviation of the random parameter is returned. This argument if valid only if the model is estimated using correlated random parameters,}
+\item{se}{if \code{TRUE} and \code{type = "cov"} then the standard error of the covariance matrix of the random parameters is returned; if \code{TRUE} and \code{type = "sd"} the standard error of the standard deviation of the random parameter is returned. This argument if valid only if the model is estimated using correlated random parameters,}
 
 \item{digits}{number of digits,}
 

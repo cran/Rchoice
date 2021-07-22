@@ -32,7 +32,7 @@ rFormula.formula <- function(object){
 
 rFormula <- function(object){
   stopifnot(inherits(object, "formula"))
-  if (!inherits(object, "Formula")) object <- Formula(object)
+  if (!inherits(object, "Formula"))  object <- Formula(object)
   if (!inherits(object, "rFormula")) class(object) <- c("rFormula", class(object))
   object
 }
@@ -47,12 +47,15 @@ as.Formula.rFormula <- function(x, ...){
 #' @export
 model.frame.rFormula <- function(formula, data, ..., lhs = NULL, rhs = NULL){
   if (is.null(rhs)) rhs <- 1:(length(formula)[2])
-  if (is.null(lhs)) lhs <- ifelse(length(formula)[1] > 0, 1, 0)
+  # Change due to conflict with plm
+  if (is.null(lhs)) lhs <- if(length(formula)[1L] > 0) 1 else 0
+  #if (is.null(lhs)) lhs <- ifelse(length(formula)[1] > 0, 1, 0)
   index <- attr(data, "index")
-  mf <- model.frame(as.Formula(formula), as.data.frame(data), ..., rhs = rhs)
+  mf    <- model.frame(as.Formula(formula), as.data.frame(data), ..., rhs = rhs)
   if (!is.null(index)) rownames(index) <- rownames(mf)
   index <- index[rownames(mf), ]
   index <- data.frame(lapply(index , function(x) x[drop = TRUE]), row.names = rownames(index))
+  class(index) <- c("pindex", class(index))
   structure(mf,
             index = index,
             class = c("pdata.frame", class(mf)))

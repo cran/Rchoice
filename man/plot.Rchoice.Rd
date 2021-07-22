@@ -2,7 +2,7 @@
 % Please edit documentation in R/Rchoice.methods.R
 \name{plot.Rchoice}
 \alias{plot.Rchoice}
-\title{Plot of the distribution of conditional expectation of random parameters.}
+\title{Plot the distribution of conditional expectation for random parameters.}
 \usage{
 \method{plot}{Rchoice}(
   x,
