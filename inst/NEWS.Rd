@@ -2,6 +2,14 @@
 \title{Rchoice News}
 \encoding{UTF-8}
 
+\section{CHANGES IN VERSION 0.3-4}{
+\subsection{NEW FEATURES}{
+    \itemize{
+      \item Fixing bug with mtable.
+    }
+  }  
+}
+
 \section{CHANGES IN VERSION 0.3-3}{
 \subsection{NEW FEATURES}{
     \itemize{

@@ -451,7 +451,9 @@ getSummary.effect.ivpml <- function(obj, alpha = 0.05, ...){
   cf             <- summary(obj)$CoefTable
   cval           <- qnorm(1 - alpha/2)
   coef           <- cbind(cf, cf[, 1] - cval * cf[, 2], cf[, 1] + cval * cf[, 2])
-  colnames(coef) <- c("est", "se", "stat", "p", "lwr", "upr")
+  dim(coef)      <- c(dim(coef)[1], dim(coef)[2], 1)
+  dimnames(coef) <- list(rownames(cf), c("est", "se", "stat", "p", "lwr", "upr"), all.vars(obj$formula)[1])
+  #colnames(coef) <- c("est", "se", "stat", "p", "lwr", "upr")
   # Statistics
   sumstat <- c(logLik = obj$maximum, deviance = NA, AIC = NA, BIC = NA, N = nrow(obj$gradientObs), 
                LR = NA, df = NA, p = NA, Aldrich.Nelson = NA, McFadden = NA, Cox.Snell = NA)

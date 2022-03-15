@@ -1,4 +1,4 @@
-796a90dc539d853c544da9c7052d0bec *DESCRIPTION
+74c35b1244d72fe465b08002d487599f *DESCRIPTION
 778c918167a76de974c2f2ddb87938fa *NAMESPACE
 6c9d637a1ba2aa5d939c49e58325d07b *R/Rchoice.MakeDraws.R
 e2faf17e12867baa402bfc94188fa075 *R/Rchoice.R
@@ -6,15 +6,15 @@ ade2c27a389fc1811f76fe97de62bc8e *R/Rchoice.logLiks.R
 8cf9c383bf43e41fc430c28d513f4cdf *R/Rchoice.methods.R
 fdd5b08a84876f2706b4f0dc030be278 *R/Rchoice.modelform.R
 24c11f85c7390644b7ff239f0842d095 *R/Rchoice.tools.R
-444b12ddb56ede5bb525276911acc3f1 *R/hetprob.R
-49378c55e507213c26ff5f18073eaf99 *R/ivpml.R
+9fcf87abfcd86820e7dbbe9495234c4a *R/hetprob.R
+5c502548e1f208d708bfd4156e0bc911 *R/ivpml.R
 90d35f02600c293c4ae2ca1ab7b52b60 *README.md
 c9799102a028868d9c91c7a62e80e44c *data/Articles.rda
 1cdd5dad9e9aaebbb93e20b58e86b94f *data/Attitudes.rda
 86eeff9aed4bf094325c1535a3681f26 *data/Health.rda
 d9f01e54dd994199fe4056f5e1bab020 *data/Workmroz.rda
 6d5d6e3bb273622f03338e3e7f236342 *inst/CITATION
-9b179189327c38402e375532fa0b965a *inst/NEWS.Rd
+78d123204f11bc55843dd2cdf8ded0e6 *inst/NEWS.Rd
 07fcc30eed76e7ba63b960692e8db185 *man/AIC.Rchoice.Rd
 e9de797c56807751ca54c85370b4bb44 *man/Articles.Rd
 fcc42061111de0e093c8472c39675c83 *man/Attitudes.Rd
